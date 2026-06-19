@@ -3,71 +3,229 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tienda de Productos</title>
+  <title>PonkyStore - Tu tienda de tecnolog&iacute;a</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Tienda de Productos</h1>
-    <p>Productos disponibles para comprar en l&iacute;nea</p>
+  <!-- ====================== ENCABEZADO ====================== -->
+  <header class="cabecera">
+    <div class="cabecera__contenido">
+      <a class="logo" data-ir="inicio">🛍️ Ponky<span>Store</span></a>
+
+      <nav class="nav">
+        <a class="nav__link activo" data-seccion="inicio">Inicio</a>
+        <a class="nav__link" data-seccion="productos">Productos</a>
+        <a class="nav__link" data-seccion="ofertas">Ofertas</a>
+        <a class="nav__link" data-seccion="contacto">Contacto</a>
+      </nav>
+
+      <div class="cabecera__acciones">
+        <button type="button" id="abrir-favoritos" class="btn-icono" title="Favoritos">
+          ❤️
+          <span id="contador-favoritos" class="contador oculto">0</span>
+        </button>
+        <button type="button" id="abrir-carrito" class="btn-icono" title="Ver carrito">
+          🛒
+          <span id="contador-carrito" class="contador oculto">0</span>
+        </button>
+      </div>
+    </div>
   </header>
 
-  <nav>
-    <ul>
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#productos">Productos</a></li>
-      <li><a href="#ofertas">Ofertas</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
-
-  <main id="inicio">
-    <section id="productos">
-      <h2>Listado de Productos</h2>
-
-      <article>
-        <h3>Aud&iacute;fonos inal&aacute;mbricos</h3>
-        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80" alt="Audifonos inalambricos" loading="lazy">
-        <p>Aud&iacute;fonos con conexi&oacute;n Bluetooth y estuche de carga.</p>
-        <p>Precio: $499 MXN</p>
-        <button type="button">Comprar</button>
-      </article>
-
-      <article>
-        <h3>Teclado mec&aacute;nico</h3>
-        <img src="https://images.unsplash.com/photo-1511467687858-23d96c32e4ae?auto=format&fit=crop&w=900&q=80" alt="Teclado mecanico" loading="lazy">
-        <p>Teclado compacto con iluminaci&oacute;n y switches mec&aacute;nicos.</p>
-        <p>Precio: $899 MXN</p>
-        <button type="button">Comprar</button>
-      </article>
-
-      <article>
-        <h3>Mouse inal&aacute;mbrico</h3>
-        <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=900&q=80" alt="Mouse inalambrico" loading="lazy">
-        <p>Mouse ergon&oacute;mico con bater&iacute;a recargable.</p>
-        <p>Precio: $349 MXN</p>
-        <button type="button">Comprar</button>
-      </article>
-
-      <article>
-        <h3>Mochila para laptop</h3>
-        <img src="https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&w=900&q=80" alt="Mochila para laptop" loading="lazy">
-        <p>Mochila resistente con compartimento para computadora port&aacute;til.</p>
-        <p>Precio: $699 MXN</p>
-        <button type="button">Comprar</button>
-      </article>
+  <main>
+    <!-- ====================== INICIO ====================== -->
+    <section id="inicio" class="seccion seccion--activa">
+      <h2 class="titulo-seccion">⭐ Productos destacados</h2>
+      <p class="subtitulo">Lo m&aacute;s vendido en PonkyStore esta semana.</p>
+      <div id="grid-destacados" class="grid-productos"></div>
     </section>
 
-    <section id="ofertas">
-      <h2>Ofertas</h2>
-      <p>Pr&oacute;ximamente encontrar&aacute;s promociones especiales.</p>
+    <!-- ====================== PRODUCTOS ====================== -->
+    <section id="productos" class="seccion">
+      <h2 class="titulo-seccion">Nuestro cat&aacute;logo</h2>
+      <p class="subtitulo">Busca, filtra y encuentra justo lo que necesitas.</p>
+
+      <div class="toolbar">
+        <input type="search" id="buscador" class="buscador" placeholder="🔍 Buscar productos...">
+        <select id="ordenar" class="ordenar">
+          <option value="">Ordenar por...</option>
+          <option value="precio-asc">Precio: menor a mayor</option>
+          <option value="precio-desc">Precio: mayor a menor</option>
+          <option value="nombre">Nombre (A-Z)</option>
+        </select>
+      </div>
+
+      <div id="filtros" class="filtros">
+        <button type="button" class="chip activo" data-cat="todos">Todos</button>
+        <button type="button" class="chip" data-cat="audio">🎧 Audio</button>
+        <button type="button" class="chip" data-cat="computo">💻 C&oacute;mputo</button>
+        <button type="button" class="chip" data-cat="accesorios">🎒 Accesorios</button>
+        <button type="button" class="chip" data-cat="wearables">⌚ Wearables</button>
+        <button type="button" class="chip chip--oferta" data-cat="oferta">🔥 En oferta</button>
+      </div>
+
+      <div id="grid-productos" class="grid-productos"></div>
+      <p id="sin-resultados" class="sin-resultados oculto">No encontramos productos con esos filtros 😕</p>
+    </section>
+
+    <!-- ====================== OFERTAS ====================== -->
+    <section id="ofertas" class="seccion">
+      <h2 class="titulo-seccion">🔥 Ofertas de la semana</h2>
+      <p class="subtitulo">Descuentos por tiempo limitado. ¡Aprov&eacute;chalos!</p>
+      <div id="grid-ofertas" class="grid-productos"></div>
+    </section>
+
+    <!-- ====================== CONTACTO ====================== -->
+    <section id="contacto" class="seccion">
+      <h2 class="titulo-seccion">Estamos para ayudarte</h2>
+      <p class="subtitulo">Contacta al departamento que necesites o env&iacute;anos un mensaje.</p>
+
+      <div class="contacto-layout">
+        <div class="equipo">
+          <div class="miembro">
+            <div class="miembro__avatar">AZ</div>
+            <h3>Alexis Zamora</h3>
+            <p class="miembro__rol">Gerente de Compras</p>
+            <p class="miembro__depto">Departamento de Compras</p>
+            <a href="mailto:compras@ponkystore.com" class="miembro__correo">compras@ponkystore.com</a>
+          </div>
+
+          <div class="miembro">
+            <div class="miembro__avatar">FR</div>
+            <h3>Fernando Ram&iacute;rez</h3>
+            <p class="miembro__rol">Jefe de Atenci&oacute;n a Quejas</p>
+            <p class="miembro__depto">Quejas y Reclamos</p>
+            <a href="mailto:quejas@ponkystore.com" class="miembro__correo">quejas@ponkystore.com</a>
+          </div>
+
+          <div class="miembro">
+            <div class="miembro__avatar">OA</div>
+            <h3>Osmara Arau</h3>
+            <p class="miembro__rol">Atenci&oacute;n al Cliente</p>
+            <p class="miembro__depto">Soporte y Servicio</p>
+            <a href="mailto:soporte@ponkystore.com" class="miembro__correo">soporte@ponkystore.com</a>
+          </div>
+
+          <div class="miembro">
+            <div class="miembro__avatar">SS</div>
+            <h3>Sugey Severiano</h3>
+            <p class="miembro__rol">Coordinadora de Ventas</p>
+            <p class="miembro__depto">Ventas y Env&iacute;os</p>
+            <a href="mailto:ventas@ponkystore.com" class="miembro__correo">ventas@ponkystore.com</a>
+          </div>
+        </div>
+
+        <div class="contacto-form">
+          <h3>✉️ Env&iacute;anos un mensaje</h3>
+          <p class="contacto-form__nota">¿Tienes una duda, comentario o queja? Esc&iacute;benos.</p>
+          <form id="form-contacto" novalidate>
+            <input type="text" name="nombre" placeholder="Tu nombre" autocomplete="name">
+            <input type="email" name="correo" placeholder="Tu correo electr&oacute;nico" autocomplete="email">
+            <textarea name="mensaje" rows="4" placeholder="Tu mensaje (m&iacute;nimo 10 caracteres)"></textarea>
+            <button type="submit">Enviar mensaje</button>
+          </form>
+        </div>
+      </div>
     </section>
   </main>
 
-  <footer id="contacto">
-    <h2>Contacto</h2>
-    <p>Correo: contacto@tiendaproductos.com</p>
-    <p>Tel&eacute;fono: 555-123-4567</p>
+  <!-- ====================== PIE DE PAGINA ====================== -->
+  <footer class="pie">
+    <p>🛍️ <strong>PonkyStore</strong> &mdash; Tu tienda de tecnolog&iacute;a</p>
+    <p>Tel&eacute;fono: 656 565 5428 &nbsp;|&nbsp; contacto@ponkystore.com</p>
   </footer>
+
+  <!-- ====================== MODAL PROMO (anuncio de bienvenida) ====================== -->
+  <div id="modal-promo" class="modal">
+    <div class="modal__contenido modal-promo__contenido">
+      <button type="button" id="cerrar-promo" class="modal__cerrar promo__cerrar" title="Cerrar">✕</button>
+      <span class="promo__etiqueta">🎉 Oferta de bienvenida</span>
+      <h2>Hasta <span>35%</span> de descuento</h2>
+      <p>Lo mejor en tecnolog&iacute;a al precio Ponky. Env&iacute;os a todo M&eacute;xico y pago 100% seguro.</p>
+      <div class="hero__insignias promo__insignias">
+        <span>🚚 Env&iacute;o gratis desde $999</span>
+        <span>⚡ Entrega en 24-48 h</span>
+      </div>
+      <button type="button" id="promo-ofertas" class="btn-hero">Ver ofertas 🔥</button>
+    </div>
+  </div>
+
+  <!-- ====================== MODAL CARRITO ====================== -->
+  <div id="modal-carrito" class="modal">
+    <div class="modal__contenido">
+      <div class="modal__cabecera">
+        <h2>Tu carrito 🛒</h2>
+        <button type="button" id="cerrar-carrito" class="modal__cerrar" title="Cerrar">✕</button>
+      </div>
+      <div id="lista-carrito" class="modal__cuerpo"></div>
+      <div class="modal__pie">
+        <p class="modal__total">Total: <span id="total-carrito">$0 MXN</span></p>
+        <div class="modal__acciones">
+          <button type="button" id="vaciar-carrito" class="btn-secundario">Vaciar</button>
+          <button type="button" id="ir-pago">Proceder al pago</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================== MODAL FAVORITOS ====================== -->
+  <div id="modal-favoritos" class="modal">
+    <div class="modal__contenido">
+      <div class="modal__cabecera">
+        <h2>Tus favoritos ❤️</h2>
+        <button type="button" id="cerrar-favoritos" class="modal__cerrar" title="Cerrar">✕</button>
+      </div>
+      <div id="lista-favoritos" class="modal__cuerpo"></div>
+    </div>
+  </div>
+
+  <!-- ====================== MODAL PAGO ====================== -->
+  <div id="modal-pago" class="modal">
+    <div class="modal__contenido">
+      <div class="modal__cabecera">
+        <h2>Finalizar compra 💳</h2>
+        <button type="button" id="cerrar-pago" class="modal__cerrar" title="Cerrar">✕</button>
+      </div>
+      <div class="modal__cuerpo">
+        <p class="pago-total">Total a pagar: <span id="total-pago">$0 MXN</span></p>
+        <p class="pago-label">Selecciona un m&eacute;todo de pago:</p>
+
+        <div class="metodos-pago">
+          <button type="button" class="metodo" data-metodo="tarjeta">💳<span>Tarjeta</span></button>
+          <button type="button" class="metodo" data-metodo="paypal">🅿️<span>PayPal</span></button>
+          <button type="button" class="metodo" data-metodo="transferencia">🏦<span>Transferencia</span></button>
+          <button type="button" class="metodo" data-metodo="oxxo">🏪<span>OXXO</span></button>
+        </div>
+
+        <div id="campos-tarjeta" class="campos-tarjeta oculto">
+          <input type="text" id="tarjeta-numero" placeholder="N&uacute;mero de tarjeta (16 d&iacute;gitos)" inputmode="numeric" maxlength="19">
+          <input type="text" id="tarjeta-nombre" placeholder="Nombre del titular">
+          <div class="campos-tarjeta__fila">
+            <input type="text" id="tarjeta-vence" placeholder="MM/AA" maxlength="5">
+            <input type="text" id="tarjeta-cvv" placeholder="CVV" inputmode="numeric" maxlength="4">
+          </div>
+        </div>
+      </div>
+      <div class="modal__pie">
+        <button type="button" id="confirmar-pago">Pagar ahora</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================== MODAL COMPRA EXITOSA ====================== -->
+  <div id="modal-exito" class="modal">
+    <div class="modal__contenido modal-exito__contenido">
+      <div class="exito__check">✓</div>
+      <h2>¡Compra exitosa! 🎉</h2>
+      <p class="exito__texto">Gracias por tu compra en PonkyStore.</p>
+      <p class="exito__detalle" id="exito-detalle"></p>
+      <button type="button" id="cerrar-exito" class="btn-hero">Seguir comprando</button>
+    </div>
+  </div>
+
+  <!-- ====================== NOTIFICACIONES ====================== -->
+  <div id="contenedor-toasts" class="contenedor-toasts"></div>
+
+  <script src="js-funcionalidades.js"></script>
 </body>
 </html>
