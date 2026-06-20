@@ -1,21 +1,89 @@
-# Des-web-Productos
+# Desarrollo Colaborativo de un Sitio Web de Productos
 
-#  Desarrollo Colaborativo de un Sitio Web de Productos
+## Descripción
 
-##  Descripción
-Este proyecto consiste en la creación de un sitio web sencillo de venta de productos, desarrollado en equipo utilizando **HTML, CSS y JavaScript**, aplicando un flujo completo de trabajo con **Git y GitHub**.
+Este proyecto consiste en el desarrollo colaborativo de un sitio web informativo de productos, utilizando HTML, CSS y JavaScript. El objetivo fue aplicar un flujo de trabajo completo con Git y GitHub, incluyendo ramas de trabajo, commits, Pull Requests e integración de cambios.
 
-##  Integrantes y Roles
-- Fer → Estructura HTML (encabezado, menú de navegación, listado de productos)
-- Osmara → Estilos CSS (diseño visual y responsivo)
-- Alexis → Funcionalidades JavaScript (validaciones y alertas de compra)
-- Sugey → Documentación y revisión de Pull Requests
+## Objetivo
 
-##  Objetivo
-Practicar el desarrollo colaborativo y el uso de GitHub para integrar cambios de varios integrantes en un mismo proyecto, aplicando buenas prácticas de control de versiones.
+Practicar el trabajo colaborativo en equipo mediante el uso de control de versiones, integrando aportaciones individuales en un repositorio compartido.
 
-##  Instrucciones de uso
+## Tecnologías utilizadas
+
+* HTML
+* CSS
+* JavaScript
+* Git
+* GitHub
+
+## Integrantes y roles
+
+* Fer: estructura HTML principal, encabezado y menú de navegación.
+* Osmara: estilos CSS y diseño responsivo básico.
+* Alexis: funcionalidades JavaScript y validaciones simples.
+* Sugey: documentación y revisión de Pull Requests.
+
+## Ramas de trabajo
+
+El repositorio cuenta con ramas de trabajo para separar las actividades de cada integrante:
+
+* `html-estructura`
+* `css-estilos`
+* `js-funcionalidades`
+* `documentacion`
+* `main`
+
+## Funcionalidades del sitio
+
+* Página principal con estructura HTML.
+* Menú de navegación.
+* Diseño visual con CSS.
+* Diseño responsivo básico.
+* Validaciones simples con JavaScript.
+* Secciones informativas de productos.
+
+## Flujo de trabajo utilizado
+
+1. Se creó el repositorio compartido en GitHub.
+2. Cada integrante trabajó en una rama diferente.
+3. Se realizaron commits con los avances individuales.
+4. Se crearon Pull Requests para integrar los cambios.
+5. Se revisaron los cambios antes de unirlos a la rama principal.
+6. Se integraron los avances en la rama `main`.
+
+## Pull Requests
+
+Durante el desarrollo se realizaron Pull Requests para integrar los cambios de las ramas de trabajo hacia la rama principal.
+
+## Evidencias
+
+Para la entrega se incluyen capturas de:
+
+* Repositorio en GitHub.
+* Ramas creadas.
+* Historial de commits.
+* Pull Requests realizados.
+* Integración de cambios.
+* Resolución de conflictos, en caso de haberse presentado.
+
+Nota: No se presentaron conflictos durante la integración de cambios.
+
+## Cómo ejecutar el proyecto
+
 1. Clonar el repositorio:
-   ```bash
-   git clone https://github.com/usuario/Des-web-Productos.git
-   cd Des-web-Productos
+
+```bash
+git clone https://github.com/eytsugey/Des-web-Productos.git
+```
+
+2. Entrar a la carpeta del proyecto:
+
+```bash
+cd Des-web-Productos
+```
+
+3. Abrir el archivo `index.html` en el navegador.
+
+## URL del repositorio
+
+https://github.com/eytsugey/Des-web-Productos
